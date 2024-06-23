@@ -9,7 +9,7 @@ df = pd.read_excel("CO2 dataset.xlsx")
 df['Year'] = pd.to_datetime(df['Year'], format='%Y')
 df.set_index(['Year'], inplace=True)
 
-st.title('Forecasting CO2')
+st.title('Data Mining - Forecasting CO2')
 year = st.slider("Tentukan Tahun",1,30,step = 1)
 
 pred = model.forecast(year)
