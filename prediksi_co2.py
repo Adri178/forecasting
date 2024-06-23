@@ -18,6 +18,11 @@ year = st.slider("Tentukan Tahun", 1, 30, step=1)
 pred = model.forecast(year)
 pred = pd.DataFrame(pred, columns=['CO2'])
 
+# Create a DateTimeIndex for predictions
+last_year = df.index[-1].year
+pred_index = pd.date_range(start=f'{last_year + 1}-01-01', periods=year, freq='YS')
+pred.index = pred_index
+
 # Ensure the 'CO2' column is numeric
 pred['CO2'] = pd.to_numeric(pred['CO2'], errors='coerce')
 
