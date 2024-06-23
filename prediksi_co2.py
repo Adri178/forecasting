@@ -12,7 +12,7 @@ df.set_index(['Year'], inplace=True)
 st.title('Data Mining - Forecasting CO2')
 year = st.slider("Tentukan Tahun",1,30,step = 1)
 
-pred = model.forecast(year, columns=['Tahun'])
+pred = model.forecast(year)
 pred = pd.DataFrame(pred, columns=['CO2'])
 
 if st.button("Prediksi"):
